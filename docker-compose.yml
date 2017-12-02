@@ -5,7 +5,6 @@ services:
   postgres:
     build: postgresql/.
     container_name: postgresdb
-    image: postgres:9.5
     network_mode: host
     ports:
       - 5432:5432
