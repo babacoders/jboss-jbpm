@@ -53,6 +53,48 @@ This will show up the below output:
  
  Username: admin 
  Password: admin
+ 
+ ## Let's verify the data volume
+ 
+     docker volume ls
+
+    local               myproject_testvols
+    
+It will show myproject_testvols instead of testvols because I ran it from myproject directory(in my case).
+
+## Verify the persistent data volume
+
+    root@ubuntu1:~/myproject# docker volume inspect myproject_testvols
+    [
+      {
+        "CreatedAt": "2017-12-02T06:36:14Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.project": "myproject",
+            "com.docker.compose.volume": "testvols"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/myproject_testvols/_data",
+        "Name": "myproject_testvols",
+        "Options": {},
+        "Scope": "local"
+    }
+    
+    
+ It shows that the volume gets mounted at /var/lib/docker/volumes/myproject_testvols/_data
+ 
+ Let's go to this particular directory in the host machine:
+ 
+    root@ubuntu1:/var/lib/docker/volumes/myproject_testvols/_data# tree 9.3|head -n 10
+     9.3
+      └── main
+         ├── PG_VERSION
+         ├── base
+         │   ├── 1
+         │   │   ├── 11765
+         │   │   ├── 11765_fsm
+         │   │   ├── 11765_vm
+         │   │   ├── 11767
+         │   │   ├── 11767_fsm
   
   
   Note:
