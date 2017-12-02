@@ -37,7 +37,9 @@ jBPM also provides various tools, both for developers (Eclipse) and end users (w
 ## Verify that Microservices are up and running
 
   * docker-compose ps
-   
+  
+This will show up the below output:
+
    Name                 Command               State   Ports
    
    kie-server   ./start_jbpm-wb.sh               Up           
@@ -48,6 +50,9 @@ jBPM also provides various tools, both for developers (Eclipse) and end users (w
  ## Get ready to open up the WebUI
  
  *  http://<IP>:8080/jbpm-console
+ 
+ Username: admin 
+ Password: admin
   
   
   Note:
