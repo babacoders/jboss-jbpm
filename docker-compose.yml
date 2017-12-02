@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+
+  postgres:
+    build: postgresql/.
+    container_name: postgresdb
+    image: postgres:9.5
+    network_mode: host
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=docker
+      - POSTGRES_USER=docker 
+      - POSTGRES_PASSWORD=docker 
+
+  kie-server:
+    container_name: kie-server
+    image: jboss/jbpm-workbench-showcase:latest
+    network_mode: host
+    ports:
+      - 8080:8080
+      - 8001:8001
+    depends_on:
+      - postgres
+    environment:
+      # KIE Workbench environment variables
+      # Neccessary to connect the KIE server to the KIE workbench
+      - KIE_SERVER_ID=mykieserver
+      - KIE_SERVER_DB_HOST=postgresdb
+      - KIE_SERVER_DB_NAME=docker
+      - KIE_SERVER_DB_USER=docker
+      - KIE_SERVER_DB_PASSWORD=docker
+
+
