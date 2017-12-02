@@ -37,8 +37,9 @@ jBPM also provides various tools, both for developers (Eclipse) and end users (w
 ## Verify that Microservices are up and running
 
   * docker-compose ps
+   
    Name                 Command               State   Ports
-   -----------------------------------------------------------
+   
    kie-server   ./start_jbpm-wb.sh               Up           
    postgresdb   /usr/lib/postgresql/9.3/bi ...   Up  
    
