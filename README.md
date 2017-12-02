@@ -60,5 +60,5 @@ This will show up the below output:
   1. While running on Google Cloud Platform, ensure that 8080 port is open
   You can open up all the ports(not recommended for production) using the below command:
   
-      gcloud compute firewall-rules create allow-all --allow all  --source-tags=ubuntu1  --source-ranges=0.0.0.0/0 --d
-escription="Be Free"                
+         gcloud compute firewall-rules create allow-all --allow all  --source-tags=ubuntu1  --source-ranges=0.0.0.0/0 --d
+        escription="Be Free"                
